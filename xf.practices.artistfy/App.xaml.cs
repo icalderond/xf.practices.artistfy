@@ -1,6 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xf.practices.artistfy.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace xf.practices.artistfy
@@ -11,7 +11,7 @@ namespace xf.practices.artistfy
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ListArtistPage();
         }
 
         protected override void OnStart()
