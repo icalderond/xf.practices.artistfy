@@ -31,7 +31,7 @@ namespace xf.practices.artistfy.Service
                         var ContentString = await response.Content.ReadAsStringAsync();
 
                         var trackResponse = Welcome.FromJson(ContentString);
-                        messageResult.Result = new List<Track>(trackResponse.Results.Trackmatches.Track);
+                        messageResult.Value = new List<Track>(trackResponse.Results.Trackmatches.Track);
                         messageResult.IsSuccess = true;
                     }
                     else

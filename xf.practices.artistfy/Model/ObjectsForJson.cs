@@ -87,7 +87,7 @@ namespace QuickType
         public long Listeners { get; set; }
 
         [JsonProperty("image")]
-        public Image[] Image { get; set; }
+        public List<Image> Image { get; set; }
 
         [JsonProperty("mbid")]
         public string Mbid { get; set; }

@@ -12,7 +12,7 @@ namespace xf.practices.artistfy
         {
             InitializeComponent();
 
-            MainPage = new ListArtistPage();
+            MainPage = new NavigationPage(new ListArtistPage());
         }
 
         protected override void OnStart()
