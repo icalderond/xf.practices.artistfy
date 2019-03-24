@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:controlImage="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="xf.practices.artistfy.Views.ListArtistPage"
-             Title="{Binding Title}">
-    <Grid BindingContext="{Binding Current}">
+             Title="{Binding Title}"
+             x:Name="artistPage">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0" BindingContext="{Binding Current}">
             <Frame WidthRequest="200" HeightRequest="200"
                    VerticalOptions="End" HorizontalOptions="Center"
                    CornerRadius="120">
@@ -23,7 +24,7 @@
                 </Frame>
         </Grid>
         <Grid Grid.Row="1">
-            <StackLayout Margin="0,50,0,0">
+            <StackLayout Margin="0,50,0,0" BindingContext="{Binding Current}">
                 <Label Text="{Binding Name}" HorizontalOptions="Center"
                        FontAttributes="Bold" FontSize="30"
                        TextColor="Black"/>
@@ -34,7 +35,7 @@
                      <Label HorizontalOptions="Center"
                             VerticalTextAlignment="Center"
                             Grid.Column="0">
-                    <Label.FormattedText>
+                    <Label.FormattedText BindingContext="{Binding Current}">
                         <FormattedString>
                             <Span Text="{Binding Listeners}"/>
                             <Span Text=" Listener"/>
@@ -46,7 +47,9 @@
                         HorizontalOptions="Center"
                         TextColor="White"
                         FontAttributes="Bold" 
-                        BackgroundColor="#e31b23"/>
+                        BackgroundColor="#e31b23"
+                        Command="{Binding OpenBrowserCommand}"
+                        CommandParameter="{Binding Current.Url}"/>
             </Grid>
         </Grid>
         

@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using QuickType;
 using xf.practices.artistfy.Service;
 using System.Linq;
+using Xamarin.Essentials;
 
 namespace xf.practices.artistfy.ViewModels
 {
@@ -54,6 +55,27 @@ namespace xf.practices.artistfy.ViewModels
             set
             {
                 _Current = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ActionCommand<Uri> _OpenBrowserCommand;
+        public ActionCommand<Uri> OpenBrowserCommand
+        {
+            get
+            {
+                if (_OpenBrowserCommand == null)
+                {
+                    _OpenBrowserCommand = new ActionCommand<Uri>((param) =>
+                   {
+                       Browser.OpenAsync(param, BrowserLaunchMode.SystemPreferred);
+                   });
+                }
+                return _OpenBrowserCommand;
+            }
+            set
+            {
+                _OpenBrowserCommand = value;
                 OnPropertyChanged();
             }
         }
