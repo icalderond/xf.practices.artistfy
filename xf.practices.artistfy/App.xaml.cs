@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using xf.practices.artistfy.Views;
+using xf.practices.artistfy.Service;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace xf.practices.artistfy
